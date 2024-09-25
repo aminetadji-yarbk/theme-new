@@ -948,6 +948,7 @@ section
 	border: solid 1px #fe4c50;
 	content: '';
 	visibility: hidden;
+	
 }
 .single_product_thumbnails ul li.active::after,
 .single_product_thumbnails ul li:hover::after

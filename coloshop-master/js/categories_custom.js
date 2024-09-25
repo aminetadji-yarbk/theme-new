@@ -450,3 +450,33 @@ jQuery(document).ready(function($)
     	};
     }
 };
+
+
+$(function() {
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 5000,
+        values: [0, 5000],
+        slide: function(event, ui) {
+            $("#amount").val(ui.values[0] + " DZD - " + ui.values[1] + " DZD");
+            $("#min-price").val(ui.values[0]);
+            $("#max-price").val(ui.values[1]);
+        }
+    });
+
+    $("#amount").val($("#slider-range").slider("values", 0) +
+        " DZD - " + $("#slider-range").slider("values", 1) + " DZD");
+
+    $("#min-price").val($("#slider-range").slider("values", 0));
+    $("#max-price").val($("#slider-range").slider("values", 1));
+
+    // Filter button click event
+    $(".filter_button").click(function() {
+        let minPrice = $("#min-price").val();
+        let maxPrice = $("#max-price").val();
+        
+        // Here you can implement the logic to filter products based on minPrice and maxPrice
+        console.log("Filtering products between " + minPrice + " DZD and " + maxPrice + " DZD");
+    });
+});
